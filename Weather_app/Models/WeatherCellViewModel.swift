@@ -8,9 +8,18 @@
 
 import UIKit
 
+
+
 struct WeatherCellViewModel {
     let summary: String
     let temperatureHigh: Double
     let temperatureLow: Double
     
 }
+
+//struct current_cell {
+//    let summary: String
+//    let temperature: Double
+//    
+//}
+

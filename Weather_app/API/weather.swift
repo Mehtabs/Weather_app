@@ -23,11 +23,11 @@ class Weather: Codable {
 }
 
 struct DSCurrent: Codable {
-    
-    let temp: Double
-    private enum CodingKeys: String, CodingKey {
-        case temp = "temperature"
-    }
+    let summary: String
+    let temperature: Double
+//    private enum CodingKeys: String, CodingKey {
+//        case temp = "temperature"
+//    }
 }
 
 struct daily_fcast: Codable {

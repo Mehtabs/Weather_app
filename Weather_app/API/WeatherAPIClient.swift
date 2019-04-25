@@ -15,14 +15,14 @@ class WeatherAPIClient: APIClient {
         self.session = session
     }
     
-    /*
-    func weather(with endpoint: WeatherEndpoint, completion: @escaping (Either<String, APIError>) -> Void) {
+    
+    func weather_current(with endpoint: WeatherEndpoint, completion: @escaping (Either<DSCurrent, APIError>) -> Void) {
         let request = endpoint.request
         self.fetch(with: request) { (either: Either<Weather, APIError>) in
             switch either {
             case .value(let weather):
-                let textForecast = weather.currently.temp
-                completion(.value(textForecast))
+                let curr_weather = weather.currently
+                completion(.value(curr_weather))
                 
             case .error(let error):
                 completion(.error(error))
@@ -30,7 +30,7 @@ class WeatherAPIClient: APIClient {
             }
         }
     }
-   */
+   
     
     func weather(with endpoint: WeatherEndpoint, completion: @escaping (Either<daily_fcast, APIError>) -> Void) {
         let request = endpoint.request
