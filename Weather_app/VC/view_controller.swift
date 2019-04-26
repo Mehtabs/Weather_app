@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 
 
+
 /******************************************************************************/
 /******************************************************************************/
 // start over clean
@@ -88,7 +89,7 @@ class view_controller: UITableViewController, CLLocationManagerDelegate {
             case .value(let daily):
                 print(daily)
                 self.cellViewModels += daily.data.map {
-                    WeatherCellViewModel(summary: $0.summary, temperatureHigh: $0.temperatureHigh, temperatureLow: $0.temperatureLow)
+                    WeatherCellViewModel(time: $0.time, summary: $0.summary, temperatureHigh: $0.temperatureHigh, temperatureLow: $0.temperatureLow)
                 }
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -101,32 +102,51 @@ class view_controller: UITableViewController, CLLocationManagerDelegate {
     //////////////////////////////
     
     
-//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        return 1
-//    }
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return 1
+    }
     
     ///////////////////////////////
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return cellViewModels.count
     }
+    ////////////////////
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if indexPath.row == 0{
+            return 200.0
+        
+        }
+        return 45.5
+    }
+    
+    
+    ///////////////////
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            let cell: UITableViewCell = UITableViewCell(style:UITableViewCellStyle.default, reuseIdentifier: "current_cell_view")
+            let cell: UITableViewCell = UITableViewCell(style:UITableViewCellStyle.value1, reuseIdentifier: "current_cell_view")
+            
             
             cell.detailTextLabel?.text = current_s
             cell.textLabel?.text = String(format: "%0.0f", current_t)
+            cell.textLabel?.font = UIFont.init(name: "Helvetica", size: 70)
             
             return cell
         }
         
         else {
-            let cell: UITableViewCell = UITableViewCell(style:UITableViewCellStyle.default, reuseIdentifier: "week_cell_view")
+            let cell: UITableViewCell = UITableViewCell(style:UITableViewCellStyle.subtitle, reuseIdentifier: "week_cell_view")
             let cellViewModel = cellViewModels[indexPath.row]
             //cell.textLabel?.text = cellViewModel.summary
             cell.detailTextLabel?.text = cellViewModel.summary
-            cell.textLabel?.text = "High: " + String(format: "%0.0f", arguments:[cellViewModel.temperatureHigh]) + " Low: " + String(format: "%0.0f", arguments:[cellViewModel.temperatureLow])
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "EEEE"
+            let day = formatter.string(from: Date(timeIntervalSince1970: TimeInterval(cellViewModel.time)))
+            
+            cell.textLabel?.text =  day + " High: " + String(format: "%0.0f", arguments:[cellViewModel.temperatureHigh]) + " Low: " + String(format: "%0.0f", arguments:[cellViewModel.temperatureLow])
             //cell.textLabel?.text = String(format: "%0.2f", arguments:[cellViewModel.temperatureLow])
             
             return cell

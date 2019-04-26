@@ -11,6 +11,7 @@ import CoreLocation
 
 class week_cell_view: UITableViewCell {
     
+    let time: Int = 0
     let summary: String = ""
     let temperatureHigh: Double = 0
     let temperatureLow: Double = 0
