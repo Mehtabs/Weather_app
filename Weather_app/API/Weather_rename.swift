@@ -37,6 +37,7 @@ struct daily_fcast: Codable {
 }
 
 struct day_forecast: Codable {
+    let time: Int
     let summary: String
     let temperatureHigh: Double
     let temperatureLow: Double
