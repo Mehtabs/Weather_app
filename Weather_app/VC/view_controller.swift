@@ -89,7 +89,7 @@ class view_controller: UITableViewController, CLLocationManagerDelegate {
             case .value(let daily):
                 print(daily)
                 self.cellViewModels += daily.data.map {
-                    WeatherCellViewModel(time: $0.time, summary: $0.summary, temperatureHigh: $0.temperatureHigh, temperatureLow: $0.temperatureLow)
+                    WeatherCellViewModel(time: $0.time, summary: $0.summary, icon: $0.icon, temperatureHigh: $0.temperatureHigh, temperatureLow: $0.temperatureLow)
                 }
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -149,7 +149,9 @@ class view_controller: UITableViewController, CLLocationManagerDelegate {
             cell.textLabel?.text =  day + " High: " + String(format: "%0.0f", arguments:[cellViewModel.temperatureHigh]) + " Low: " + String(format: "%0.0f", arguments:[cellViewModel.temperatureLow])
             //cell.textLabel?.text = String(format: "%0.2f", arguments:[cellViewModel.temperatureLow])
             
+            cell.imageView?.image = UIImage(named: cellViewModel.icon)
             return cell
+            
         }
         
         

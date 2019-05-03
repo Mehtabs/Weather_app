@@ -82,7 +82,7 @@
             </objects>
             <point key="canvasLocation" x="804" y="185.75712143928038"/>
         </scene>
-        <!--Item-->
+        <!--View controller Search-->
         <scene sceneID="vkO-J1-XhL">
             <objects>
                 <tableViewController id="Fkz-Fb-MfJ" customClass="view_controller_Search" customModule="Weather_app" customModuleProvider="target" sceneMemberID="viewController">
@@ -110,7 +110,7 @@
                             <outlet property="delegate" destination="Fkz-Fb-MfJ" id="WHn-oy-04Y"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="o2C-Kz-SUt"/>
+                    <navigationItem key="navigationItem" id="N4L-cN-Q8A"/>
                     <connections>
                         <outlet property="searchBar" destination="323-Yp-aRY" id="9UR-72-yu5"/>
                         <outlet property="tableView" destination="pD4-lG-dTk" id="ldg-hh-uz1"/>
@@ -119,7 +119,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bwN-mV-6Tb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="899" y="1427"/>
+            <point key="canvasLocation" x="1237.5999999999999" y="1426.2368815592206"/>
         </scene>
         <!--Search weather vc-->
         <scene sceneID="AUE-uA-prC">
@@ -151,7 +151,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5hH-as-kMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2067" y="1430"/>
+            <point key="canvasLocation" x="2405.5999999999999" y="1429.8350824587708"/>
         </scene>
         <!--tab_bar_vc-->
         <scene sceneID="DiI-Ts-7Rj">
@@ -164,7 +164,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="9bB-2M-pUJ" kind="relationship" relationship="viewControllers" id="1AF-Kk-h7u"/>
-                        <segue destination="Fkz-Fb-MfJ" kind="relationship" relationship="viewControllers" id="mQ3-wq-HEe"/>
+                        <segue destination="Ew6-bJ-AxV" kind="relationship" relationship="viewControllers" id="mQ3-wq-HEe"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mXc-cg-Q3U" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -189,6 +189,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12K-bI-ZSs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="112" y="186.20689655172416"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="MLZ-Ob-MpJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ew6-bJ-AxV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="o2C-Kz-SUt"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4L4-0c-ag5">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Fkz-Fb-MfJ" kind="relationship" relationship="rootViewController" id="RKA-uh-U1B"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vP5-rp-XOy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="111" y="1430"/>
         </scene>
     </scenes>
     <resources>

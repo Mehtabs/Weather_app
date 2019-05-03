@@ -32,6 +32,7 @@ struct DSCurrent: Codable {
 
 struct daily_fcast: Codable {
     let summary: String
+    //let icon: String
     // data is an array containing weeks forecast
     let data: [day_forecast]
 }
@@ -39,6 +40,7 @@ struct daily_fcast: Codable {
 struct day_forecast: Codable {
     let time: Int
     let summary: String
+    let icon: String
     let temperatureHigh: Double
     let temperatureLow: Double
 }

@@ -13,8 +13,11 @@ import UIKit
 struct WeatherCellViewModel {
     let time: Int
     let summary: String
+    let icon: String
     let temperatureHigh: Double
     let temperatureLow: Double
+    
+
     
 }
 
